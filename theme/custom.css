@@ -2,6 +2,45 @@
    Rust 학습 가이드 커스텀 스타일
    ============================ */
 
+/* 상단 고정 프로그레스 바 */
+.top-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(127, 127, 127, 0.15);
+    z-index: 9999;
+    cursor: default;
+}
+
+.top-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 0 2px 2px 0;
+    transition: width 0.5s ease;
+}
+
+.top-bar-text {
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    font-size: 0.65em;
+    opacity: 0;
+    color: var(--fg);
+    background: var(--bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(127, 127, 127, 0.2);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.top-progress-bar:hover .top-bar-text {
+    opacity: 1;
+}
+
 /* 난이도 배지 */
 .badge-beginner {
     display: inline-block;
@@ -207,6 +246,65 @@
     font-weight: bold;
 }
 
+/* 사이드바 섹션별 진행률 */
+.section-progress {
+    margin-top: 8px;
+}
+
+.section-progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75em;
+    opacity: 0.8;
+    margin-bottom: 3px;
+}
+
+.section-name {
+    font-weight: 600;
+}
+
+.section-count {
+    opacity: 0.6;
+}
+
+.section-bar-bg {
+    height: 4px;
+    background: rgba(127, 127, 127, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.section-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+/* 사이드바 챕터별 프로그레스 배지 */
+.chapter-progress-badge {
+    font-size: 0.7em;
+    padding: 1px 5px;
+    border-radius: 8px;
+    background: rgba(127, 127, 127, 0.15);
+    color: inherit;
+    opacity: 0.6;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+.chapter-progress-badge.badge-partial {
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+    opacity: 1;
+}
+
+.chapter-progress-badge.badge-done {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    opacity: 1;
+}
+
 /* 대시보드 (소개 페이지) */
 #progress-dashboard {
     margin: 24px 0;
@@ -268,6 +366,124 @@
 
 .reset-btn:hover {
     background: rgba(231, 76, 60, 0.2);
+}
+
+/* 대시보드 섹션별 상세 */
+.dash-section {
+    margin-top: 24px;
+    padding: 16px;
+    background: rgba(52, 152, 219, 0.04);
+    border: 1px solid rgba(52, 152, 219, 0.1);
+    border-radius: 8px;
+}
+
+.dash-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dash-section-header h4 {
+    margin: 0;
+}
+
+.dash-section-stat {
+    font-size: 0.85em;
+    opacity: 0.7;
+}
+
+.dash-section-bar-bg {
+    height: 6px;
+    background: rgba(127, 127, 127, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 8px 0 12px;
+}
+
+.dash-section-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.dash-chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dash-chapter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    background: rgba(127, 127, 127, 0.05);
+}
+
+.dash-chapter.dash-done {
+    background: rgba(46, 204, 113, 0.08);
+}
+
+.dash-ch-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.check-mark::before {
+    content: "✓";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    background: #2ecc71;
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+.check-empty::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(127, 127, 127, 0.3);
+    box-sizing: border-box;
+}
+
+.dash-ch-progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.dash-mini-bar {
+    display: inline-block;
+    width: 40px;
+    height: 4px;
+    background: rgba(127, 127, 127, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.dash-mini-fill {
+    display: block;
+    height: 100%;
+    background: #2ecc71;
+    border-radius: 2px;
+}
+
+.dash-ch-status {
+    font-size: 0.8em;
+    opacity: 0.5;
 }
 
 /* 코드 비교 (Before/After) */
