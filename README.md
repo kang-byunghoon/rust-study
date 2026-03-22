@@ -1,5 +1,7 @@
 # Rust 학습 가이드
 
+> **온라인으로 읽기:** [https://kang-byunghoon.github.io/rust-study/](https://kang-byunghoon.github.io/rust-study/)
+
 Rust 프로그래밍 언어를 기초부터 고급까지 체계적으로 학습하기 위한 목차입니다.
 
 ---
