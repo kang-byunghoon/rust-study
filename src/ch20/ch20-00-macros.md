@@ -4,8 +4,9 @@
 
 이 장에서 다루는 내용:
 
-- **[선언적 매크로](./ch20-01-declarative-macros.md)**: `macro_rules!` 기본 문법, 지정자, 반복 패턴, 표준 매크로
-- **[고급 매크로](./ch20-02-advanced-macros.md)**: 재귀 매크로, 절차적 매크로, 디버깅, 매크로 vs 제네릭 비교
+- [선언적 매크로 -- `macro_rules!`](ch20-01-declarative-macros.md) -- 기본 문법, 지정자, 반복 패턴, 구조체 빌더 매크로
+- [표준 매크로와 고급 패턴](ch20-02-standard-and-advanced-macros.md) -- `println!`, `vec!`, `dbg!` 등 표준 매크로, 재귀 매크로, 매크로 vs 제네릭 vs 트레이트
+- [절차적 매크로와 매크로 디버깅](ch20-03-procedural-macros.md) -- derive/속성/함수형 절차적 매크로, serde, `cargo expand`
 
 <div class="info-box">
 
