@@ -23,7 +23,7 @@ line-numbers = true
 [output.html.search]
 enable = true
 limit-results = 30
-use-hierarchical-headings = true
+boost-hierarchy = 2
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
