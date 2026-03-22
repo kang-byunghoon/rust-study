@@ -413,18 +413,48 @@
     gap: 6px;
 }
 
-.dash-chapter {
+.dash-chapter-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
     font-size: 0.9em;
     background: rgba(127, 127, 127, 0.05);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
 
-.dash-chapter.dash-done {
+.dash-chapter-link:hover {
+    background: rgba(52, 152, 219, 0.12);
+    border-color: rgba(52, 152, 219, 0.25);
+    transform: translateX(4px);
+    text-decoration: none;
+    color: inherit;
+}
+
+.dash-chapter-link.dash-done {
     background: rgba(46, 204, 113, 0.08);
+}
+
+.dash-chapter-link.dash-done:hover {
+    background: rgba(46, 204, 113, 0.18);
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+.dash-percent {
+    font-weight: bold;
+    font-size: 0.9em;
+    min-width: 32px;
+    text-align: right;
+    color: #3498db;
+}
+
+.dash-chapter-link.dash-done .dash-percent {
+    color: #2ecc71;
 }
 
 .dash-ch-name {

@@ -68,6 +68,7 @@
                 if (isParent) {
                     currentSection.children.push({
                         name: link.textContent.trim(),
+                        href: link.getAttribute('href'),
                         path: fullPath,
                         completed: isCompleted,
                         subItems: []
@@ -76,6 +77,7 @@
                     const parent = currentSection.children[currentSection.children.length - 1];
                     parent.subItems.push({
                         name: link.textContent.trim(),
+                        href: link.getAttribute('href'),
                         path: fullPath,
                         completed: isCompleted
                     });
@@ -256,18 +258,23 @@
                     subCount++;
                     if (ch.completed) subDone++;
                     const chPercent = Math.round((subDone / subCount) * 100);
-                    return `<div class="dash-chapter ${chPercent === 100 ? 'dash-done' : ''}">
+                    return `<a href="${ch.href}" class="dash-chapter-link ${chPercent === 100 ? 'dash-done' : ''}">
                         <span class="dash-ch-name">${ch.completed ? '<span class="check-mark"></span>' : '<span class="check-empty"></span>'} ${ch.name}</span>
                         <span class="dash-ch-progress">
+                            <span class="dash-percent">${chPercent}%</span>
                             <span class="dash-mini-bar"><span class="dash-mini-fill" style="width:${chPercent}%"></span></span>
                             ${subDone}/${subCount}
                         </span>
-                    </div>`;
+                    </a>`;
                 } else {
-                    return `<div class="dash-chapter ${ch.completed ? 'dash-done' : ''}">
+                    const chPercent = ch.completed ? 100 : 0;
+                    return `<a href="${ch.href}" class="dash-chapter-link ${ch.completed ? 'dash-done' : ''}">
                         <span class="dash-ch-name">${ch.completed ? '<span class="check-mark"></span>' : '<span class="check-empty"></span>'} ${ch.name}</span>
-                        <span class="dash-ch-status">${ch.completed ? '완료' : '미완료'}</span>
-                    </div>`;
+                        <span class="dash-ch-progress">
+                            <span class="dash-percent">${chPercent}%</span>
+                            <span class="dash-ch-status">${ch.completed ? '완료' : '미완료'}</span>
+                        </span>
+                    </a>`;
                 }
             }).join('');
 
