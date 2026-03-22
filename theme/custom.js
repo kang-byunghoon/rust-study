@@ -128,6 +128,7 @@
             saveProgress(progress);
             updateSidebarProgress();
             updateProgressDashboard();
+            updateTopBar();
         });
 
         if (isCompleted) {
@@ -314,6 +315,7 @@
                     localStorage.removeItem(STORAGE_KEY);
                     updateSidebarProgress();
                     updateProgressDashboard();
+                    updateTopBar();
                     const checkbox = document.getElementById('chapter-complete-checkbox');
                     if (checkbox) checkbox.checked = false;
                 }
@@ -321,11 +323,32 @@
         }
     }
 
+    // 페이지 상단 얇은 프로그레스 바
+    function updateTopBar() {
+        const completed = getCompletedCount();
+        const total = getTotalChapters();
+        const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+        let topBar = document.getElementById('top-progress-bar');
+        if (!topBar) {
+            topBar = document.createElement('div');
+            topBar.id = 'top-progress-bar';
+            topBar.className = 'top-progress-bar';
+            document.body.prepend(topBar);
+        }
+
+        topBar.innerHTML = `
+            <div class="top-bar-fill" style="width: ${percent}%"></div>
+            <span class="top-bar-text">${percent}% (${completed}/${total})</span>
+        `;
+    }
+
     // 초기화
     function init() {
         addCompletionCheckbox();
         updateSidebarProgress();
         updateProgressDashboard();
+        updateTopBar();
     }
 
     // DOM 로드 후 실행

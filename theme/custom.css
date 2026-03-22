@@ -2,6 +2,45 @@
    Rust 학습 가이드 커스텀 스타일
    ============================ */
 
+/* 상단 고정 프로그레스 바 */
+.top-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(127, 127, 127, 0.15);
+    z-index: 9999;
+    cursor: default;
+}
+
+.top-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 0 2px 2px 0;
+    transition: width 0.5s ease;
+}
+
+.top-bar-text {
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    font-size: 0.65em;
+    opacity: 0;
+    color: var(--fg);
+    background: var(--bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(127, 127, 127, 0.2);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.top-progress-bar:hover .top-bar-text {
+    opacity: 1;
+}
+
 /* 난이도 배지 */
 .badge-beginner {
     display: inline-block;
