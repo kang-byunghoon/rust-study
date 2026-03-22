@@ -1,0 +1,302 @@
+/* ============================
+   Rust 학습 가이드 커스텀 스타일
+   ============================ */
+
+/* 난이도 배지 */
+.badge-beginner {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    background-color: #27ae60;
+    color: white;
+}
+
+.badge-intermediate {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    background-color: #f39c12;
+    color: white;
+}
+
+.badge-advanced {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* 정보/팁/경고/주의 박스 (Admonition) */
+.info-box, .tip-box, .warning-box, .danger-box, .exercise-box, .quiz-box {
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.info-box {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left-color: #3498db;
+}
+
+.tip-box {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left-color: #2ecc71;
+}
+
+.warning-box {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left-color: #f1c40f;
+}
+
+.danger-box {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left-color: #e74c3c;
+}
+
+.info-box::before { content: "ℹ️ "; font-weight: bold; }
+.tip-box::before { content: "💡 "; font-weight: bold; }
+.warning-box::before { content: "⚠️ "; font-weight: bold; }
+.danger-box::before { content: "🚨 "; font-weight: bold; }
+
+/* 연습문제 박스 */
+.exercise-box {
+    background-color: rgba(155, 89, 182, 0.1);
+    border-left-color: #9b59b6;
+}
+
+.exercise-box::before { content: "✏️ 연습문제: "; font-weight: bold; }
+
+/* 퀴즈 박스 */
+.quiz-box {
+    background-color: rgba(52, 73, 94, 0.1);
+    border-left-color: #34495e;
+    cursor: pointer;
+}
+
+.quiz-box::before { content: "❓ 퀴즈: "; font-weight: bold; }
+
+.quiz-answer {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(127, 127, 127, 0.4);
+}
+
+.quiz-box.show-answer .quiz-answer {
+    display: block;
+}
+
+.quiz-toggle {
+    background: rgba(52, 152, 219, 0.2);
+    border: 1px solid rgba(52, 152, 219, 0.4);
+    color: inherit;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+.quiz-toggle:hover {
+    background: rgba(52, 152, 219, 0.3);
+}
+
+/* 핵심 정리 박스 */
+.summary-box {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(155, 89, 182, 0.05));
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 24px 0;
+}
+
+.summary-box h3 {
+    margin-top: 0;
+    color: #3498db;
+}
+
+/* 학습 완료 체크박스 */
+.completion-box {
+    margin-top: 40px;
+    padding: 16px 20px;
+    background: rgba(46, 204, 113, 0.08);
+    border: 2px dashed rgba(46, 204, 113, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.completion-box.completed {
+    background: rgba(46, 204, 113, 0.15);
+    border-color: #2ecc71;
+    border-style: solid;
+}
+
+.completion-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.completion-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #2ecc71;
+}
+
+/* 사이드바 진행률 바 */
+.progress-container {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 0.85em;
+}
+
+.progress-label {
+    font-weight: bold;
+}
+
+.progress-count {
+    opacity: 0.7;
+}
+
+.progress-bar-bg {
+    height: 8px;
+    background: rgba(127, 127, 127, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.progress-percent {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 4px;
+    opacity: 0.6;
+}
+
+/* 사이드바 완료 챕터 표시 */
+.chapter-completed > a::after {
+    content: " ✓";
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* 대시보드 (소개 페이지) */
+#progress-dashboard {
+    margin: 24px 0;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 20px;
+    background: rgba(52, 152, 219, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(52, 152, 219, 0.15);
+}
+
+.stat-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+.dashboard-bar-bg {
+    height: 12px;
+    background: rgba(127, 127, 127, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.dashboard-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.reset-btn {
+    display: block;
+    margin: 16px auto 0;
+    padding: 8px 20px;
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    color: #e74c3c;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85em;
+}
+
+.reset-btn:hover {
+    background: rgba(231, 76, 60, 0.2);
+}
+
+/* 코드 비교 (Before/After) */
+.code-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.code-compare > div > p:first-child {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .code-compare {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mermaid 다이어그램 중앙 정렬 */
+.mermaid {
+    text-align: center;
+    margin: 20px 0;
+}
